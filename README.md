@@ -59,8 +59,9 @@ raw_nasa_asteroides  →  stg_nasa_asteroides  →  marts/
    - `fct_frequencia_observacoes`
    - `fct_maiores_asteroides`
 
-> 📸 *Print da DAG de linhagem gerada pelo `dbt docs` (porta 8001):*
-> `![Lineage DAG](docs/images/lineage_dag.png)`
+📸 *Print da DAG de linhagem gerada pelo `dbt docs` (porta 8001):*
+
+![Lineage DAG](docs/images/lineage_dag.png)
 
 ## 🧪 Governança e Qualidade de Dados (Data Quality)
 
