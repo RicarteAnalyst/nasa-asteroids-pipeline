@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: fct_analise_mensal_asteroides
+    description: "Tabela fato que consolida a quantidade de asteroides considerados críticos ou em monitoramento mapeados mensalmente."
+    columns:
+      - name: mes
+        description: "Data truncada representando o primeiro dia do mês de observação."
+        tests:
+          - unique
+          - not_null
+      - name: quantidade_asteroides_criticos
+        description: "Contagem total de asteroides perigosos identificados no período."
+
+  - name: fct_frequencia_observacoes
+    description: "Tabela fato que analisa a recorrência de visualizações de asteroides pela NASA, identificando objetos de órbita curta frequente."
+    columns:
+      - name: asteroide_nome
+        description: "Nome do asteroide observado."
+        tests:
+          - not_null
+          - unique
+      - name: total_observacoes
+        description: "Número total de observações registradas para o asteroide no período."
+        tests:
+          - not_null
+
+  - name: fct_asteroides_criticos
+    description: "Tabela fato operacional que lista os asteroides que apresentam critérios de risco ativos ou monitoramento de proximidade severo."
+    columns:
+      - name: asteroide_nome
+        description: "Nome único de identificação do asteroide registrado pela NASA."
+        tests:
+          - not_null
+      - name: nivel_alerta
+        description: "Classificação do nível de perigo do asteroide (ex: Crítico, Monitorar)."
+        tests:
+          - not_null
+
+  - name: fct_maiores_asteroides
+    description: "Tabela fato de análise dimensional que ranqueia os maiores corpos celestes registrados com base no seu diâmetro estimado."
+    columns:
+      - name: asteroide_nome
+        description: "Nome oficial do asteroide."
+        tests:
+          - not_null
+      - name: diametro_km
+        description: "Diâmetro estimado do asteroide em quilômetros."
+        tests:
+          - not_null
+      - name: posicao_no_ranking
+        description: "Posição do asteroide no ranking dos maiores por nível de alerta (gerado via ROW_NUMBER)."
+        tests:
+          - not_null

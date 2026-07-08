@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: public
+    tables:
+      - name: raw_nasa_asteroides
+        description: "Dados brutos dos asteroides coletados diretamente da API da NASA via Airflow."
+        columns:
+          - name: nome
+            description: "Nome do asteroide registrado."
+            tests:
+              - not_null
+          - name: diametro_max_km
+            description: "Diâmetro máximo estimado em quilômetros."
+            tests:
+              - not_null
+          - name: is_perigoso
+            description: "Flag indicando se o asteroide é potencialmente perigoso."
+            tests:
+              - not_null

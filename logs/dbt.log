@@ -1,0 +1,308 @@
+[0m20:40:03.599104 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4a57209e80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4a590d2ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4a55f3b9d0>]}
+
+
+============================== 20:40:03.604431 | 5f9d5572-feec-4d79-8e19-1f5d965ace49 ==============================
+[0m20:40:03.604431 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m20:40:03.605191 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'target_path': 'None', 'static_parser': 'True', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init', 'use_colors': 'True', 'debug': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'log_format': 'default', 'empty': 'None', 'introspect': 'True', 'profiles_dir': '/home/ricarte/.dbt', 'no_print': 'None', 'log_path': 'logs', 'version_check': 'True', 'quiet': 'False', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'fail_fast': 'False', 'write_json': 'True'}
+[0m20:40:03.619303 [info ] [MainThread]: Creating dbt configuration folder at /home/ricarte/.dbt
+[0m20:40:19.085348 [debug] [MainThread]: Starter project path: /home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/include/starter_project
+[0m20:40:19.094707 [info ] [MainThread]: Setting up your profile.
+[0m20:42:26.571171 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+
+[0m20:42:26.581518 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/cli/requires.py", line 184, in wrapper
+    result, success = func(*args, **kwargs)
+                      ~~~~^^^^^^^^^^^^^^^^^
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/cli/requires.py", line 130, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/cli/main.py", line 499, in init
+    results = task.run()
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/task/init.py", line 360, in run
+    self.setup_profile(profile_name)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/task/init.py", line 264, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/task/init.py", line 181, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/task/init.py", line 165, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/task/init.py", line 131, in generate_target_from_input
+    target[key] = click.prompt(
+                  ~~~~~~~~~~~~^
+        text, default=default, hide_input=hide_input, type=type
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/click/termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+  File "/home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/click/termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m20:42:26.586999 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 143.08943, "process_in_blocks": "12984", "process_kernel_time": 0.13688, "process_mem_max_rss": "118320", "process_out_blocks": "72", "process_user_time": 2.000256}
+[0m20:42:26.589223 [debug] [MainThread]: Command `dbt init` failed at 20:42:26.588804 after 143.09 seconds
+[0m20:42:26.591354 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4a55efc2b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4a55f14050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4a55e3abe0>]}
+[0m20:42:26.593682 [debug] [MainThread]: Flushing usage events
+[0m20:42:28.050387 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:42:39.157068 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796dbf611e80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796dc15e6990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796dbe3439d0>]}
+
+
+============================== 20:42:39.161225 | e2f859a0-395c-402a-9201-00453c551868 ==============================
+[0m20:42:39.161225 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m20:42:39.161986 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'printer_width': '80', 'target_path': 'None', 'partial_parse': 'True', 'no_print': 'None', 'introspect': 'True', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'log_cache_events': 'False', 'version_check': 'True', 'cache_selected_only': 'False', 'debug': 'False', 'fail_fast': 'False', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init', 'use_colors': 'True', 'profiles_dir': '/home/ricarte/.dbt', 'write_json': 'True', 'quiet': 'False', 'empty': 'None', 'static_parser': 'True'}
+[0m20:43:01.748417 [info ] [MainThread]: A project called nasa_astro already exists here.
+[0m20:43:01.751756 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 22.693676, "process_in_blocks": "4688", "process_kernel_time": 0.12015, "process_mem_max_rss": "113548", "process_out_blocks": "8", "process_user_time": 1.883687}
+[0m20:43:01.753696 [debug] [MainThread]: Command `dbt init` succeeded at 20:43:01.753246 after 22.70 seconds
+[0m20:43:01.755236 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796dbe3f82b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796dbe611a30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x796dbe37a7a0>]}
+[0m20:43:01.756812 [debug] [MainThread]: Flushing usage events
+[0m20:43:02.622649 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:43:59.185698 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de639709e80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de63b6e2990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de63843b9d0>]}
+
+
+============================== 20:43:59.189967 | 6fb87e8d-06e6-4d3d-942e-cfad68c8b717 ==============================
+[0m20:43:59.189967 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m20:43:59.190726 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'printer_width': '80', 'log_format': 'default', 'debug': 'False', 'log_cache_events': 'False', 'static_parser': 'True', 'empty': 'None', 'invocation_command': 'dbt init', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'write_json': 'True', 'use_colors': 'True', 'partial_parse': 'True', 'profiles_dir': '/home/ricarte/.dbt', 'version_check': 'True', 'no_print': 'None', 'cache_selected_only': 'False', 'quiet': 'False'}
+[0m20:44:08.210234 [debug] [MainThread]: Starter project path: /home/ricarte/projetos_data/nasa_astro/venv/lib/python3.14/site-packages/dbt/include/starter_project
+[0m20:44:08.215129 [info ] [MainThread]: Setting up your profile.
+[0m20:46:44.846579 [info ] [MainThread]: Profile nasa_astro written to /home/ricarte/.dbt/profiles.yml using target's profile_template.yml and your supplied values.
+[0m20:46:44.852542 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m20:46:44.854622 [info ] [MainThread]: dbt version: 1.12.0-b1
+[0m20:46:44.855895 [info ] [MainThread]: python version: 3.14.4
+[0m20:46:44.857195 [info ] [MainThread]: python path: /home/ricarte/projetos_data/nasa_astro/venv/bin/python3
+[0m20:46:44.858424 [info ] [MainThread]: os info: Linux-7.0.0-14-generic-x86_64-with-glibc2.43
+[0m20:46:44.905416 [info ] [MainThread]: Using profiles dir at /home/ricarte/.dbt
+[0m20:46:44.906021 [info ] [MainThread]: Using profiles.yml file at /home/ricarte/.dbt/profiles.yml
+[0m20:46:44.906723 [info ] [MainThread]: Using dbt_project.yml file at /home/ricarte/projetos_data/nasa_astro/nasa_astro/dbt_project.yml
+[0m20:46:44.907580 [info ] [MainThread]: adapter type: postgres
+[0m20:46:44.908298 [info ] [MainThread]: adapter version: 1.10.0
+[0m20:46:45.082189 [info ] [MainThread]: Configuration:
+[0m20:46:45.082827 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m20:46:45.083334 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m20:46:45.083838 [info ] [MainThread]: Required dependencies:
+[0m20:46:45.084378 [debug] [MainThread]: Executing "git --help"
+[0m20:46:45.090454 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m20:46:45.091150 [debug] [MainThread]: STDERR: "b''"
+[0m20:46:45.091774 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m20:46:45.092379 [info ] [MainThread]: Connection:
+[0m20:46:45.092952 [info ] [MainThread]:   host: localhost
+[0m20:46:45.093664 [info ] [MainThread]:   port: 5432
+[0m20:46:45.094122 [info ] [MainThread]:   user: postgres
+[0m20:46:45.094735 [info ] [MainThread]:   database: projeto_nasa_astro
+[0m20:46:45.095190 [info ] [MainThread]:   schema: dev
+[0m20:46:45.095814 [info ] [MainThread]:   connect_timeout: 10
+[0m20:46:45.096256 [info ] [MainThread]:   role: None
+[0m20:46:45.096802 [info ] [MainThread]:   search_path: None
+[0m20:46:45.097233 [info ] [MainThread]:   keepalives_idle: 0
+[0m20:46:45.097837 [info ] [MainThread]:   sslmode: None
+[0m20:46:45.098276 [info ] [MainThread]:   sslcert: None
+[0m20:46:45.098758 [info ] [MainThread]:   sslkey: None
+[0m20:46:45.099182 [info ] [MainThread]:   sslrootcert: None
+[0m20:46:45.099632 [info ] [MainThread]:   application_name: dbt
+[0m20:46:45.100091 [info ] [MainThread]:   retries: 1
+[0m20:46:45.100712 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m20:46:45.190585 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m20:46:45.237757 [debug] [MainThread]: Using postgres connection "debug"
+[0m20:46:45.238581 [debug] [MainThread]: On debug: select 1 as id
+[0m20:46:45.239287 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:46:45.258173 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+[0m20:46:45.262841 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m20:46:45.263743 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m20:46:45.264449 [debug] [MainThread]: On debug: No close available on handle
+[0m20:46:45.265020 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m20:46:45.265524 [info ] [MainThread]: [31m1 check failed:[0m
+[0m20:46:45.266020 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m20:46:45.266604 [info ] [MainThread]: Your new dbt project "nasa_astro" was created!
+Initialized new project in /home/ricarte/projetos_data/nasa_astro/nasa_astro/nasa_astro
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:46:45.267120 [info ] [MainThread]: [31mYour profile may need adjustments. You can find the logs of `dbt debug` above[0m
+[0m20:46:45.268864 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 166.18405, "process_in_blocks": "10224", "process_kernel_time": 0.16355, "process_mem_max_rss": "129236", "process_out_blocks": "96", "process_user_time": 2.230868}
+[0m20:46:45.269683 [debug] [MainThread]: Command `dbt init` succeeded at 20:46:45.269474 after 166.19 seconds
+[0m20:46:45.270173 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m20:46:45.270744 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de6384ec2b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de637941a30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de6381707c0>]}
+[0m20:46:45.271441 [debug] [MainThread]: Flushing usage events
+[0m20:46:46.881448 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:48:59.916178 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6383b0de80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a638598aad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a638283f9d0>]}
+
+
+============================== 20:48:59.921464 | 41aa1bb0-9fb3-47d4-97b3-aa62561ff5b9 ==============================
+[0m20:48:59.921464 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m20:48:59.922383 [debug] [MainThread]: running dbt with arguments {'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'write_json': 'True', 'warn_error': 'None', 'log_format': 'default', 'use_colors': 'True', 'version_check': 'True', 'introspect': 'True', 'invocation_command': 'dbt debug', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'indirect_selection': 'eager', 'printer_width': '80', 'log_cache_events': 'False', 'debug': 'False', 'target_path': 'None', 'log_path': 'logs', 'quiet': 'False', 'fail_fast': 'False', 'profiles_dir': '/home/ricarte/.dbt', 'no_print': 'None', 'static_parser': 'True'}
+[0m20:48:59.938889 [info ] [MainThread]: dbt version: 1.12.0-b1
+[0m20:48:59.939463 [info ] [MainThread]: python version: 3.14.4
+[0m20:48:59.940001 [info ] [MainThread]: python path: /home/ricarte/projetos_data/nasa_astro/venv/bin/python3
+[0m20:48:59.940480 [info ] [MainThread]: os info: Linux-7.0.0-14-generic-x86_64-with-glibc2.43
+[0m20:49:00.007443 [info ] [MainThread]: Using profiles dir at /home/ricarte/.dbt
+[0m20:49:00.008088 [info ] [MainThread]: Using profiles.yml file at /home/ricarte/.dbt/profiles.yml
+[0m20:49:00.008584 [info ] [MainThread]: Using dbt_project.yml file at /home/ricarte/projetos_data/nasa_astro/dbt_project.yml
+[0m20:49:00.009258 [info ] [MainThread]: adapter type: postgres
+[0m20:49:00.009736 [info ] [MainThread]: adapter version: 1.10.0
+[0m20:49:00.010272 [info ] [MainThread]: Configuration:
+[0m20:49:00.010832 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m20:49:00.011291 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m20:49:00.011903 [info ] [MainThread]: Required dependencies:
+[0m20:49:00.012425 [debug] [MainThread]: Executing "git --help"
+[0m20:49:00.015705 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m20:49:00.016360 [debug] [MainThread]: STDERR: "b''"
+[0m20:49:00.016980 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m20:49:00.017536 [info ] [MainThread]: Connection:
+[0m20:49:00.018209 [info ] [MainThread]:   host: localhost
+[0m20:49:00.018954 [info ] [MainThread]:   port: 5432
+[0m20:49:00.019675 [info ] [MainThread]:   user: postgres
+[0m20:49:00.020155 [info ] [MainThread]:   database: projeto_nasa_astro
+[0m20:49:00.020657 [info ] [MainThread]:   schema: dev
+[0m20:49:00.021164 [info ] [MainThread]:   connect_timeout: 10
+[0m20:49:00.021676 [info ] [MainThread]:   role: None
+[0m20:49:00.022124 [info ] [MainThread]:   search_path: None
+[0m20:49:00.022595 [info ] [MainThread]:   keepalives_idle: 0
+[0m20:49:00.023400 [info ] [MainThread]:   sslmode: None
+[0m20:49:00.024384 [info ] [MainThread]:   sslcert: None
+[0m20:49:00.025176 [info ] [MainThread]:   sslkey: None
+[0m20:49:00.026034 [info ] [MainThread]:   sslrootcert: None
+[0m20:49:00.026753 [info ] [MainThread]:   application_name: dbt
+[0m20:49:00.027188 [info ] [MainThread]:   retries: 1
+[0m20:49:00.027870 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m20:49:00.112408 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m20:49:00.146231 [debug] [MainThread]: Using postgres connection "debug"
+[0m20:49:00.146776 [debug] [MainThread]: On debug: select 1 as id
+[0m20:49:00.147209 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:49:00.152532 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+[0m20:49:00.156350 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m20:49:00.157094 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m20:49:00.157776 [debug] [MainThread]: On debug: No close available on handle
+[0m20:49:00.158221 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m20:49:00.158787 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m20:49:00.159246 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/ricarte/projetos_data/nasa_astro/dbt_project.yml> not found
+
+[0m20:49:00.159872 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m20:49:00.161070 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.34690383, "process_in_blocks": "34376", "process_kernel_time": 0.185808, "process_mem_max_rss": "127252", "process_out_blocks": "24", "process_user_time": 2.149218}
+[0m20:49:00.161804 [debug] [MainThread]: Command `dbt debug` failed at 20:49:00.161645 after 0.35 seconds
+[0m20:49:00.162280 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m20:49:00.162798 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a63828f7230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6382816b10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6382875ae0>]}
+[0m20:49:00.163366 [debug] [MainThread]: Flushing usage events
+[0m20:49:02.048896 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:25:39.983614 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e1ac4d5e80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e1ae366990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e1ab3fb9d0>]}
+
+
+============================== 16:25:39.994648 | b8283db7-af88-4671-8051-47d6eded5c8e ==============================
+[0m16:25:39.994648 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m16:25:39.995881 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'use_colors': 'True', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'log_format': 'default', 'printer_width': '80', 'log_cache_events': 'False', 'quiet': 'False', 'introspect': 'True', 'version_check': 'True', 'fail_fast': 'False', 'empty': 'None', 'static_parser': 'True', 'write_json': 'True', 'log_path': 'logs', 'indirect_selection': 'eager', 'warn_error': 'None', 'cache_selected_only': 'False', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'profiles_dir': '/home/ricarte/.dbt', 'invocation_command': 'dbt debug'}
+[0m16:25:40.028247 [info ] [MainThread]: dbt version: 1.12.0-b1
+[0m16:25:40.029249 [info ] [MainThread]: python version: 3.14.4
+[0m16:25:40.029870 [info ] [MainThread]: python path: /home/ricarte/projetos_data/nasa_astro/venv/bin/python3
+[0m16:25:40.030418 [info ] [MainThread]: os info: Linux-7.0.0-14-generic-x86_64-with-glibc2.43
+[0m16:25:40.146402 [info ] [MainThread]: Using profiles dir at /home/ricarte/.dbt
+[0m16:25:40.147050 [info ] [MainThread]: Using profiles.yml file at /home/ricarte/.dbt/profiles.yml
+[0m16:25:40.147470 [info ] [MainThread]: Using dbt_project.yml file at /home/ricarte/projetos_data/nasa_astro/dbt_project.yml
+[0m16:25:40.148510 [info ] [MainThread]: adapter type: postgres
+[0m16:25:40.149602 [info ] [MainThread]: adapter version: 1.10.0
+[0m16:25:40.150663 [info ] [MainThread]: Configuration:
+[0m16:25:40.151339 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m16:25:40.151993 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m16:25:40.152552 [info ] [MainThread]: Required dependencies:
+[0m16:25:40.153083 [debug] [MainThread]: Executing "git --help"
+[0m16:25:40.159972 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m16:25:40.161173 [debug] [MainThread]: STDERR: "b''"
+[0m16:25:40.162035 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m16:25:40.163290 [info ] [MainThread]: Connection:
+[0m16:25:40.164200 [info ] [MainThread]:   host: localhost
+[0m16:25:40.165562 [info ] [MainThread]:   port: 19291
+[0m16:25:40.166767 [info ] [MainThread]:   user: postgres
+[0m16:25:40.167785 [info ] [MainThread]:   database: postgres
+[0m16:25:40.168639 [info ] [MainThread]:   schema: dev
+[0m16:25:40.169563 [info ] [MainThread]:   connect_timeout: 10
+[0m16:25:40.170355 [info ] [MainThread]:   role: None
+[0m16:25:40.170929 [info ] [MainThread]:   search_path: None
+[0m16:25:40.171502 [info ] [MainThread]:   keepalives_idle: 0
+[0m16:25:40.172340 [info ] [MainThread]:   sslmode: None
+[0m16:25:40.173303 [info ] [MainThread]:   sslcert: None
+[0m16:25:40.174055 [info ] [MainThread]:   sslkey: None
+[0m16:25:40.175169 [info ] [MainThread]:   sslrootcert: None
+[0m16:25:40.176257 [info ] [MainThread]:   application_name: dbt
+[0m16:25:40.177050 [info ] [MainThread]:   retries: 1
+[0m16:25:40.178431 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m16:25:40.321981 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m16:25:40.384002 [debug] [MainThread]: Using postgres connection "debug"
+[0m16:25:40.384613 [debug] [MainThread]: On debug: select 1 as id
+[0m16:25:40.385119 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:25:40.392748 [debug] [MainThread]: Postgres adapter: Got a retryable error when attempting to open a postgres connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+connection to server at "localhost" (127.0.0.1), port 19291 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[0m16:25:40.394209 [debug] [MainThread]: Postgres adapter: Error running SQL: select 1 as id
+[0m16:25:40.394906 [debug] [MainThread]: Postgres adapter: Rolling back transaction.
+[0m16:25:40.395459 [debug] [MainThread]: On debug: No close available on handle
+[0m16:25:40.395873 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m16:25:40.396430 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m16:25:40.396941 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/ricarte/projetos_data/nasa_astro/dbt_project.yml> not found
+
+[0m16:25:40.397444 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "localhost" (127.0.0.1), port 19291 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m16:25:40.401489 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.54361814, "process_in_blocks": "92056", "process_kernel_time": 0.406444, "process_mem_max_rss": "124420", "process_out_blocks": "24", "process_user_time": 3.011885}
+[0m16:25:40.402641 [debug] [MainThread]: Command `dbt debug` failed at 16:25:40.402300 after 0.55 seconds
+[0m16:25:40.403694 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m16:25:40.404490 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e1ab1b08a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e1ab1da9f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e1aa7bd260>]}
+[0m16:25:40.405535 [debug] [MainThread]: Flushing usage events
+[0m16:25:43.860735 [debug] [MainThread]: An error was encountered while trying to flush usage events
