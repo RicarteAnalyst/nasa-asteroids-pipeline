@@ -1,45 +1,36 @@
-Overview
-========
+# ☄️ NASA Asteroids Data Pipeline (Projeto-Degelo Supplement)
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+Este projeto implementa um pipeline de dados robusto, escalável e orquestrado para a ingestão, transformação e governança de dados operacionais sobre asteroides monitorados pela NASA (Near Earth Object Web Service API). 
 
-Project Contents
-================
+O foco principal do repositório é aplicar boas práticas de **Engenharia de Dados**, garantindo a integridade, teste e documentação das tabelas desde a camada de dados brutos até a modelagem dimensional final.
 
-Your Astro project contains the following files and folders:
+## 🛠️ Arquitetura e Tecnologias
 
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes one example DAG:
-    - `example_astronauts`: This DAG shows a simple ETL pipeline example that queries the list of astronauts currently in space from the Open Notify API and prints a statement for each astronaut. The DAG uses the TaskFlow API to define tasks in Python, and dynamic task mapping to dynamically print a statement for each astronaut. For more on how this DAG works, see our [Getting started tutorial](https://www.astronomer.io/docs/learn/get-started-with-airflow).
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+O fluxo do pipeline segue a arquitetura de um Data Warehouse local moderno estruturado em containers:
 
-Deploy Your Project Locally
-===========================
+- **Orquestração:** **Apache Airflow (Astronomer)** gerenciando as tasks de extração incremental da API e carga no banco de dados.
+- **Ingestão e Carga (EL):** Scripts Python otimizados integrados aos Hooks do Airflow para persistência.
+- **Armazenamento:** **PostgreSQL** rodando em ambiente isolado via **Docker**.
+- **Transformação de Dados (T):** **dbt (Data Build Tool)** modularizando as queries em camadas (Staging e Marts).
+- **Data Quality:** Testes automatizados de integridade via dbt para validação de chaves e nulos.
 
-Start Airflow on your local machine by running 'astro dev start'.
+## 📐 Linhagem de Dados (Lineage DAG)
 
-This command will spin up five Docker containers on your machine, each for a different Airflow component:
+O pipeline foi estruturado seguindo o conceito de separação de conceitos em camadas dentro do Data Warehouse:
 
-- Postgres: Airflow's Metadata Database
-- Scheduler: The Airflow component responsible for monitoring and triggering tasks
-- DAG Processor: The Airflow component responsible for parsing DAGs
-- API Server: The Airflow component responsible for serving the Airflow UI and API
-- Triggerer: The Airflow component responsible for triggering deferred tasks
+1. `source.public.raw_nasa_asteroides`: Camada onde o dado pousa em seu estado bruto.
+2. `stg_nasa_asteroides`: Camada de staging responsável pela limpeza inicial, padronização de tipos de dados e renomeação de campos.
+3. `marts`: Tabelas facto prontas para o consumo analítico (`fct_analise_mensal_asteroides`, `fct_asteroides_criticos`, `fct_frequencia_observacoes`, `fct_maiores_asteroides`).
 
-When all five containers are ready the command will open the browser to the Airflow UI at http://localhost:8080/. You should also be able to access your Postgres Database at 'localhost:5432/postgres' with username 'postgres' and password 'postgres'.
+*(Dica: Adicione aqui o print da DAG de linhagem que o dbt docs gerou para você na porta 8001)*
 
-Note: If you already have either of the above ports allocated, you can either [stop your existing Docker containers or change the port](https://www.astronomer.io/docs/astro/cli/troubleshoot-locally#ports-are-not-available-for-my-local-airflow-webserver).
+## 🧪 Governança e Qualidade de Dados (Data Quality)
 
-Deploy Your Project to Astronomer
-=================================
+Para blindar o repositório contra dados corrompidos ou inconsistências da API, foram implementados **13 testes de dados automatizados** gerenciados pelo dbt, garantindo que regras críticas de negócio nunca sejam quebradas:
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
+- **Testes de Unicidade (`unique`):** Aplicados em chaves primárias das tabelas fato (como `asteroide_nome` agrupados) para mitigar duplicações.
+- **Testes de Não-Nulidade (`not_null`):** Aplicados em métricas severas e campos de identificação essenciais da NASA.
 
-Contact
-=======
-
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
+Para rodar os testes localmente:
+```bash
+dbt test
