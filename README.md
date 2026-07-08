@@ -79,8 +79,8 @@ dbt test
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/RicarteAnalyst/<nome-do-repo>.git
-cd <nome-do-repo>
+git clone https://github.com/RicarteAnalyst/<nasa-asteroids-pipeline>.git
+cd <nasa-asteroids-pipeline>
 
 # 2. Suba o ambiente Airflow (Astro CLI)
 astro dev start
