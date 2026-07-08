@@ -61,7 +61,7 @@ raw_nasa_asteroides  →  stg_nasa_asteroides  →  marts/
 
 📸 *Print da DAG de linhagem gerada pelo `dbt docs` (porta 8001):*
 
-![Lineage DAG](docs/images/lineage_dag.png)
+![Lineage DAG](docs/images/lineage_dag.png) 
 
 ## 🧪 Governança e Qualidade de Dados (Data Quality)
 
